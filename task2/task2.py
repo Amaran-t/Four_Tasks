@@ -6,7 +6,9 @@ def read_circle(file_path):
         lines = file.readlines()
         first_line = lines[0].strip().split()
 
-        if len(first_line) == 2:
+        if len(first_line) == 3:  # Все значения на одной строке
+            x0, y0, r = map(float, first_line)
+        elif len(first_line) == 2 and len(lines) >= 2:  # Координаты на первой строке, радиус на второй
             x0, y0 = map(float, first_line)
             r = float(lines[1].strip())
         else:
